@@ -32,6 +32,7 @@ jobs:
 
     - name: Deploy to Elastic Beanstalk
       run: |
+        cd src/frontend/mobile/backend
         eb init ${{ secrets.EB_APP_NAME }} --region ${{ secrets.AWS_REGION }} --platform "node.js-22"
         eb use ${{ secrets.EB_ENV_NAME }}
         eb deploy --staged --timeout 20
